@@ -1,0 +1,87 @@
+.mygroupDateTime{
+    @apply flex justify-between items-center mt-[20px]
+}
+.mygroupday{
+    @apply font-secondary_roboto font-medium pr-1
+}
+.mygrouptime{
+    @apply font-secondary_roboto font-medium
+}
+.mygroup_box{
+    @apply border-b-2 border-x-third-blue
+}
+
+.mygroup_list{
+    @apply  justify-between items-center my-[15px] 
+}
+.mygroup{
+    @apply flex items-center
+}
+.mygroup_img{
+    @apply w-[60px] h-[60px] rounded-full bg-slate-900
+}
+.mygroup_name{
+    @apply ml-[30px] pl-3
+}
+.mygroup_box h4{
+    @apply text-[20px] font-secondary_roboto font-bold text-secondary-light-blue capitalize 
+}
+.mygroup_box h3{
+    @apply text-[15px] font-secondary_roboto font-bold text-third-blue capitalize
+}
+.mygroup_box h5{
+    @apply text-[10px] font-secondary_roboto font-bold  capitalize
+}
+.group_delet{
+    @apply mt-[30px] bg-secondary-light-blue p-[50px] z-[10] rounded-lg text-center
+}
+.group_delet h1{
+    @apply text-[20px] mb-[10px] font-medium
+}
+.group_delet h1 span{
+    @apply font-bold text-frouth-red capitalize
+}
+.group_delet input{
+    @apply border-none outline-none px-[10px] py-[5px] rounded-md 
+}
+.group_confirm{
+    @apply py-[5px] px-[10px] mr-1 bg-frouth-red text-[15px] font-secondary_roboto font-medium capitalize rounded-md text-primary-white opacity-70 ml-[2px] cursor-none
+}
+.group_buttons{
+    @apply mt-[30px]
+}
+.group_req_count{
+    @apply text-frouth-red bg-primary-white p-[5px] rounded-[100%]
+}
+.group_request_list{
+    @apply w-full h-[320px] rounded-[10px] relative
+}
+.group_close_btn {
+    @apply absolute top-[10px] right-[10px] z-[-1]
+}
+/* .group_box{
+    @apply 
+} */
+
+
+.group_req_list{
+    @apply flex justify-between items-center relative z-[1] my-[15px] pb-[15px] border-b-[2px]
+}
+.groupreq{
+    @apply flex items-center
+}
+.group_img{
+    @apply w-[60px] h-[60px] rounded-full bg-slate-900
+}
+.group_img img{
+    @apply w-full h-full rounded-full
+}
+.group_name{
+    @apply pl-3
+}
+.group_name h4{
+    @apply text-[15px] font-secondary_roboto font-bold capitalize 
+}
+.containerTitle .group_req_icon_close{
+    @apply cursor-pointer transition-all duration-[0.3s] ease-in-out hover:shadow-[0px_0px_5px_0px_rgba(0,0,0,0.75)] rounded-full text-frouth-red
+}

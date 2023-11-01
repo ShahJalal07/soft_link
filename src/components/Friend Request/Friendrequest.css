@@ -1,0 +1,25 @@
+.friendreq_box{
+    @apply border-b-2 border-x-third-blue
+}
+
+.friendreq_list{
+    @apply flex justify-between items-center my-[15px] 
+}
+.friendreq{
+    @apply flex items-center
+}
+.friendreq_img{
+    @apply w-[60px] h-[60px] rounded-full bg-slate-900
+}
+.friendreq_img img{
+    @apply w-full h-full rounded-full
+}
+.friendreq_name{
+    @apply pl-3
+}
+.friendreq_box h4{
+    @apply text-[15px] font-secondary_roboto font-bold capitalize 
+}
+.friendreq_box h5{
+    @apply text-[10px] font-secondary_roboto font-bold  capitalize
+}

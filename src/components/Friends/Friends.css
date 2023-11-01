@@ -1,0 +1,25 @@
+.friends_box {
+  @apply border-b-2 border-x-third-blue;
+}
+
+.friends_list {
+  @apply flex justify-between items-center my-[15px];
+}
+.friends {
+  @apply flex items-center;
+}
+.friends_img {
+  @apply w-[60px] h-[60px] rounded-full bg-slate-900;
+}
+.friends_img img{
+  @apply w-full h-full rounded-full;
+}
+.friends_name {
+  @apply pl-3;
+}
+.friends_box h4 {
+  @apply text-[15px] font-secondary_roboto font-bold capitalize;
+}
+.friends_box h5 {
+  @apply text-[10px] font-secondary_roboto font-bold  capitalize;
+}

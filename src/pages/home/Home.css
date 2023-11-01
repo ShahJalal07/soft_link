@@ -1,0 +1,23 @@
+.main_content {
+  @apply flex p-2 justify-between flex-wrap m-[20px] ;
+}
+.group_item {
+  @apply w-[100%] px-4 pb-4 border-2  mb-5 rounded-md shadow-lg h-[340px] overflow-y-scroll ;
+}
+.main_content .item_box .searchbar {
+  @apply px-[60px] py-[10px] shadow-lg w-[100%] mb-8 rounded-md relative;
+}
+.main_content .item_box .searchbar input {
+  @apply py-[5px] border-none outline-none w-[80%];
+}
+.main_content .item_box .searchbar .search_icon {
+  @apply absolute left-[20px] top-[50%] translate-y-[-50%] text-2xl text-third-blue font-bold cursor-pointer;
+}
+.main_content .item_box .searchbar .three_dot {
+  @apply absolute right-[20px] top-[50%] translate-y-[-50%] text-2xl text-third-blue font-bold cursor-pointer;
+}
+.main_content .searchbar {
+  @apply w-[32.5%];
+}
+
+

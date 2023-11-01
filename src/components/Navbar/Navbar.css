@@ -1,0 +1,46 @@
+.navbar {
+  @apply rounded-[20px] m-[20px] bg-third-blue py-[20px] sticky top-0 left-0 z-[999];
+}
+.nav-content {
+  @apply container flex items-center justify-between mx-auto;
+}
+nav .profileArea {
+  @apply flex items-center gap-5;
+}
+nav .profileArea .profileImg {
+  @apply w-[70px] h-[70px] relative bg-secondary-light-blue rounded-full overflow-hidden cursor-pointer duration-[3s] ease-in-out;
+}
+nav .profileArea .profileImg:hover .defaultProfile {
+  @apply hidden;
+}
+nav .profileArea .profileImg .defaultProfile {
+  @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] capitalize font-primary_poppins text-primary-white font-bold text-lg;
+}
+
+nav .profileArea .profileImg .overlay {
+  @apply absolute top-0 left-0 hidden w-full h-full z-[999];
+}
+nav .profileArea .profileImg .overlay svg {
+  @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]  text-primary-white text-4xl z-[999];
+}
+nav .profileArea .profileImg:hover .overlay {
+  @apply absolute top-0 left-0 block w-full h-full z-[999];
+}
+nav .profileArea .profileImg img {
+  @apply object-cover relative z-[888] w-full;
+}
+nav .profileArea h1 {
+  @apply text-2xl font-semibold capitalize font-primary_poppins text-primary-white;
+}
+nav .manu_items {
+  @apply flex gap-7;
+}
+nav .manu_items .active {
+  @apply text-2xl text-secondary-light-blue;
+}
+nav .manu_items .no_active {
+  @apply text-2xl text-primary-white;
+}
+nav .manu_items .logout {
+  @apply ml-[50px] text-2xl text-primary-white hover:text-secondary-light-blue;
+}

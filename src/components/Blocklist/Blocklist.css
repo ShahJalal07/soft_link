@@ -1,0 +1,25 @@
+.blocklist_box{
+    @apply border-b-2 border-x-third-blue
+}
+
+.blocklist_list{
+    @apply flex justify-between items-center my-[15px] 
+}
+.blocklist{
+    @apply flex items-center
+}
+.blocklist_img{
+    @apply w-[60px] h-[60px] rounded-full bg-slate-900
+}
+.blocklist_img img{
+    @apply w-full h-full rounded-full
+}
+.blocklist_name{
+    @apply pl-3
+}
+.blocklist_box h4{
+    @apply text-[15px] font-secondary_roboto font-bold capitalize 
+}
+.blocklist_box h5{
+    @apply text-[10px] font-secondary_roboto font-bold  capitalize
+}

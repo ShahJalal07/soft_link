@@ -1,0 +1,89 @@
+.errortag{
+  @apply text-sm text-red-500 w-[380px] font-primary_poppins my-2 ml-2  capitalize 
+}
+.strongTag {
+  @apply text-sm text-green-500 w-[380px] font-primary_poppins my-2 ml-2 flex items-center  capitalize
+}
+.strongTag .stringIcon{
+  @apply mr-[5px]
+}
+::-webkit-scrollbar{
+  @apply w-[10px]
+}
+::-webkit-scrollbar-track{
+   @apply bg-transparent
+}
+::-webkit-scrollbar-thumb{
+   @apply bg-third-blue rounded-full py-[5px] 
+}
+/* containerTitle starts */
+.item_box{
+  @apply w-[32.5%] gap-5 relative 
+}
+.item {
+  @apply w-[100%] px-4 pb-4 border-2  mb-5 rounded-md shadow-lg h-[426px] overflow-y-scroll ;
+}
+.containerTitle {
+  @apply flex items-center justify-between bg-third-blue  sticky top-0 left-0 shadow-lg p-[5px] rounded-lg mt-4 z-[2]
+}
+.containerTitle h2 {
+  @apply text-2xl font-semibold capitalize text-primary-white font-primary_poppins;
+}
+.containerTitle svg {
+  @apply text-3xl text-primary-white;
+}
+/* containerTitle end */
+
+/* button starts */
+.button_v_1{
+  @apply py-[5px] px-[10px] bg-third-blue text-[15px] font-secondary_roboto font-medium capitalize rounded-md text-primary-white hover:opacity-70 ml-[2px]
+}
+.button_v_11{
+  @apply py-[5px] px-[10px] bg-third-blue text-[15px] font-secondary_roboto font-medium capitalize rounded-md text-primary-white pointer-events-none hover:opacity-70 ml-[2px]
+}
+.button_v_2{
+  @apply py-[5px] px-[10px] mr-1 bg-frouth-red text-[15px] font-secondary_roboto font-medium capitalize rounded-md text-primary-white hover:opacity-70 ml-[2px]
+}
+.button_v_3{
+  @apply py-[5px] px-[10px] mr-1 bg-secondary-light-blue text-[15px] font-secondary_roboto font-medium capitalize rounded-md text-primary-white hover:opacity-70 ml-[2px]
+}
+/* button end */
+
+.blure{
+  filter: blur(20px);
+  pointer-events: none;
+  user-select: none;
+}
+.modal{
+  @apply w-[70%] h-[70%] bg-secondary-light-blue absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-[999] flex justify-center items-center rounded-lg 
+}
+.modal .profileImage{
+  @apply w-[50%] p-5 bg-primary-white rounded-lg
+}
+.modal .profileImage h2{
+  @apply text-2xl font-bold text-secondary-light-blue font-secondary_roboto capitalize 
+}
+.modal .profileImage input{
+  @apply my-4
+}
+.modal .model_button_are{
+  @apply mt-[20px]
+}
+.profile-priv{
+  @apply box-border w-[70px] h-[70px] rounded-[50%] overflow-hidden border-[3px] border-secondary-light-blue mx-auto
+}
+.img-preview{
+  @apply w-[100%] h-[100%]
+}
+/* title area start */
+.item_box{
+  @apply box-border
+}
+.item_title{
+  @apply flex justify-between items-center text-[20px] text-primary-white font-bold mt-[20px] rounded-[5px] p-2  bg-third-blue capitalize sticky left-0 top-[0] z-[8]
+}
+/* title area end */
+
+.errortext{
+  @apply text-sm text-red-500 font-primary_poppins capitalize 
+}

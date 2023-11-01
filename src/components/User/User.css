@@ -1,0 +1,24 @@
+.user_list{
+    @apply flex justify-between items-center my-[15px] border-b-2 py-[15px]
+}
+.user{
+    @apply flex items-center
+}
+.user_img{
+    @apply w-[60px] h-[60px] rounded-full
+}
+.user_img img{
+    @apply w-full h-full rounded-full
+}
+.user_name{
+    @apply pl-3
+}
+.user_box h4{
+    @apply text-[15px] font-secondary_roboto font-bold capitalize 
+}
+.user_box h5{
+    @apply text-[10px] font-secondary_roboto font-bold 
+}
+.not_available{
+    @apply text-[20px] font-secondary_roboto font-bold capitalize text-red-500
+}

@@ -1,0 +1,38 @@
+.forgotpage {
+  @apply flex items-center justify-center h-screen bg-third-blue;
+}
+.forget-box {
+  @apply relative bg-primary-white flex justify-between items-center w-[900px] h-[600px] shadow-[0px_0px_5px_0px_rgba(0,0,0,0.75)] px-[50px];
+}
+.shape {
+  @apply absolute w-full bottom-0 left-0 h-[220px];
+}
+.shape2 {
+  @apply absolute w-full rotate-180 top-0 left-0 h-[220px];
+}
+.forgot-from {
+  display: block;
+}
+
+.forget-title {
+  @apply font-bold text-[20px] text-secondary-light-blue mb-5;
+}
+
+.forget-animation {
+  @apply w-[450px] h-[400px];
+}
+.forget-input-box {
+  @apply text-primary-white outline-none text-[20px]  placeholder:capitalize placeholder:text-third-blue text-third-blue border-b-2 border-third-blue w-full;
+}
+.emailError {
+  @apply text-red-500 text-[15px] my-[10px] capitalize;
+}
+.buttons {
+  @apply mt-[20px];
+}
+.send-btn {
+  @apply w-full text-center py-[10px] bg-secondary-light-blue rounded-md  text-primary-white hover:opacity-[0.8] uppercase;
+}
+.back-btn {
+  @apply block text-center p-[10px] font-bold;
+}
