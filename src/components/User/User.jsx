@@ -111,7 +111,6 @@ const User = () => {
 
   // block start
   const [blockList, setBlockList] = useState([]);
-  console.log(blockList);
   useEffect(() => {
     const blockRef = ref(db, "block");
     onValue(blockRef, (snapShort) => {
@@ -151,7 +150,7 @@ const User = () => {
                   <h1 className="not_available">Not Available</h1>
                 ) : friendList.includes(data.uid + item.id) ||
                   friendList.includes(item.id + data.uid) ? (
-                  <button className="button_v_3">Friend</button>
+                  <button className="button_v_4">Friend</button>
                 ) : friendRequestList.includes(item.id + data.uid) ||
                   friendRequestList.includes(data.uid + item.id) ? (
                   <button

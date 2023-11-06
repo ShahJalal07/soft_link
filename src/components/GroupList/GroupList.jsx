@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import "./GroupList.css";
 import { AiFillCloseCircle, AiFillPlusCircle } from "react-icons/ai";
-import { getDatabase, onValue, push, ref, remove, set } from "firebase/database";
+import {
+  getDatabase,
+  onValue,
+  push,
+  ref,
+  remove,
+  set,
+} from "firebase/database";
 import { useSelector } from "react-redux";
 
 const GroupList = () => {
@@ -97,24 +104,22 @@ const GroupList = () => {
   }, []);
   // group requestlist get end
 
-  
   // cancle group request start
-  const [groupRequestget, setGroupRequestget] = useState([])
+  const [groupRequestget, setGroupRequestget] = useState([]);
   useEffect(() => {
-  const groupRequestRef= ref(db, "groupJoinRequest")
-  
-  onValue(groupRequestRef,(snapShort)=>{
-    const list=[]
-    snapShort.forEach((item)=>{
-      list.push({...item.val(), key:item.key})
-    })
-    setGroupRequestget(list)
-  })
-  
-  }, [])
-  
-  const handelJoinCancle =(item)=>{
-    const cancle={
+    const groupRequestRef = ref(db, "groupJoinRequest");
+
+    onValue(groupRequestRef, (snapShort) => {
+      const list = [];
+      snapShort.forEach((item) => {
+        list.push({ ...item.val(), key: item.key });
+      });
+      setGroupRequestget(list);
+    });
+  }, []);
+
+  const handelJoinCancle = (item) => {
+    const cancle = {
       groupId: item.id,
       groupName: item.groupName,
       groupInfo: item.groupInfo,
@@ -122,13 +127,98 @@ const GroupList = () => {
       groupAdminID: item.adminID,
       senderID: data.uid,
       sernderName: data.displayName,
-    }
-    const cancleRequest = groupRequestget?.find((item)=>
-      item.senderID===cancle.senderID && item.groupAdminID===cancle.groupAdminID
-    )
-    remove(ref(db, "groupJoinRequest/" + cancleRequest.key))
-  }
+    };
+    const cancleRequest = groupRequestget?.find(
+      (item) =>
+        item.senderID === cancle.senderID &&
+        item.groupAdminID === cancle.groupAdminID
+    );
+    remove(ref(db, "groupJoinRequest/" + cancleRequest.key));
+  };
   // cancle group request end
+
+  // group member get start
+  const [groupMembers, setGroupMember] = useState([]);
+  useEffect(() => {
+    const groupMemberRef = ref(db, "groupMenmbers");
+    onValue(groupMemberRef, (snapShort) => {
+      const list = [];
+      snapShort.forEach((item) => {
+        list.push(
+          item.val().groupID + item.val().senderID ||
+            item.val().senderID + item.val().groupID
+        );
+      });
+      setGroupMember(list);
+    });
+  }, []);
+  // group member get end
+
+  // group leave start
+  const [leveMember, setleveMember] = useState([]);
+  
+  useEffect(() => {
+    const levMembersRef = ref(db, "groupMenmbers");
+    onValue(levMembersRef, (snapShort) => {
+      let list = [];
+      snapShort.forEach((item) => {
+        list.push({ ...item.val(), key: item.key });
+      });
+      setleveMember(list);
+    });
+  }, []);
+  console.log(leveMember);
+//   adminID
+// : 
+// "3pLQcPh3XkeI3twGfIwtslrpVjN2"
+// adminName
+// : 
+// "jarif"
+// groupID
+// : 
+// "-Nh_5cU20vbPQYpmI5Ei"
+// groupName
+// : 
+// "group name nai"
+// key
+// : 
+// "-NiV2Sutj7ukW2elK6Mg"
+// senderID
+// : 
+// "WN9WybLM08bdvf220m1b6pUI0kz1"
+// sernderName
+// : 
+// "Shah jalal"
+  
+// adminID
+// : 
+// "3pLQcPh3XkeI3twGfIwtslrpVjN2"
+// adminName
+// : 
+// "jarif"
+// groupInfo
+// : 
+// "js and react js"
+// groupName
+// : 
+// "group name nai"
+// id
+// : 
+// "-Nh_5cU20vbPQYpmI5Ei"
+
+  const handelLeaveGroup = (item) => {
+    console.log(item);
+    const cancle ={
+      senderID: data.uid,
+      senderName:data.displayName,
+      groupName:item.groupName,
+      groupId:item.id,
+      groupAdminID:item.adminID
+    }
+    const check = leveMember.find((item)=> item.groupID==cancle.groupId && item.groupName ==cancle.groupName )
+    remove(ref(db, "groupMenmbers/" + check.key));
+  };
+  // group leave end
 
   return (
     <div>
@@ -154,9 +244,7 @@ const GroupList = () => {
             return (
               <div key={i} className="group_list">
                 <div className="group_list_item">
-                  <div className="group_img">
-                    
-                  </div>
+                  <div className="group_img"></div>
 
                   <div className="group_name_area">
                     <h4>{item.groupName}</h4>
@@ -165,9 +253,22 @@ const GroupList = () => {
                   </div>
                 </div>
                 <div>
-                  {groupRequestList.includes(data.uid + item.id) ||
-                  groupRequestList.includes(item.id + data.uid) ? (
-                    <button onClick={()=>handelJoinCancle(item)} className="button_v_2">Cancle Request</button>
+                  {groupMembers.includes(data.uid + item.id) ||
+                  groupMembers.includes(item.id + data.uid) ? (
+                    <button
+                      onClick={() => handelLeaveGroup(item)}
+                      className="button_v_4"
+                    >
+                      Leave Group
+                    </button>
+                  ) : groupRequestList.includes(data.uid + item.id) ||
+                    groupRequestList.includes(item.id + data.uid) ? (
+                    <button
+                      onClick={() => handelJoinCancle(item)}
+                      className="button_v_2"
+                    >
+                      Cancle Request
+                    </button>
                   ) : (
                     <button
                       onClick={() => handelJoin(item)}

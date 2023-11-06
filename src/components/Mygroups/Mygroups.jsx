@@ -81,7 +81,6 @@ const Mygroups = () => {
 
   // group request get and close start
   const handelRequestClose = (group) => {
-    console.log(group);
     setRequestClose(!requestClose);
     setGroupData(group);
 
@@ -105,11 +104,11 @@ const Mygroups = () => {
   //group request get and close end
 
   // group request get for length show start
-  // const [groups, setGroups] = useState([]);
 
-  // const groupId = groupList.find((item) => {
-  //   setGroups(item);
-  // });
+  let list = [];
+  const groupId = groupList.find((item) => {
+    list.push(item);
+  });
 
   const [requestList, setRequestList] = useState([]);
   useEffect(() => {
@@ -150,9 +149,46 @@ const Mygroups = () => {
   };
   // group request cnacle end
 
+  // group info start
+  const [groupInfoClose, setGroupInfoClose] = useState(false);
+  const [groupMemnersList, setGroupMembersList] = useState([]);
+  console.log(groupMemnersList);
+  const handelGroupInfo = (groupInfo) => {
+    setGroupData(groupInfo)
+    setGroupInfoClose(!groupInfoClose);
+    const groupMemberRef = ref(db, "groupMenmbers");
+    onValue(groupMemberRef, (snapShort) => {
+      const list = [];
+      snapShort.forEach((item) => {
+        if (
+          data.uid == groupInfo.adminID &&
+          item.val().groupID == groupInfo.id
+        ) {
+          list.push({ ...item.val(), id: item.key });
+        }
+      });
+      setGroupMembersList(list);
+    });
+  };
+  // group info end
+
+  // group member unfriend start
+  const handelGrouMemberUnfriend=(item)=>{
+    remove(ref(db, "groupMenmbers/" + item.id));
+  }
+  // group member unfriend end
+
   return (
     <div>
-      {requestClose ? (
+      {groupInfoClose ? (
+        <div className="containerTitle ti">
+          <h2>{groupData.groupName}</h2>
+          <AiFillCloseCircle
+            className="group_req_icon_close"
+            onClick={() => setGroupInfoClose(!groupInfoClose)}
+          />
+        </div>
+      ) : requestClose ? (
         <div className="containerTitle ti">
           <h2>{groupData.groupName}</h2>
           <AiFillCloseCircle
@@ -227,6 +263,33 @@ const Mygroups = () => {
             </button>
           </div>
         </div>
+      ) : groupInfoClose ? (
+        <div className="group_request_list">
+          {groupMemnersList.map((item, i) => {
+            return (
+              <div key={i} className="group_req_list">
+                <div className="groupreq">
+                  <div className="group_img">
+                    <ProfilePicture imgID={item.senderID} />
+                  </div>
+                  <div className="group_name">
+                    <h4> {item.sernderName} </h4>
+                  </div>
+                </div>
+
+                <div className="">
+                  <button
+                    onClick={() => handelGrouMemberUnfriend(item)}
+                    className="button_v_2"
+                  >
+                   Unfriend
+                  </button>
+                  
+                </div>
+              </div>
+            );
+          })}
+        </div>
       ) : (
         groupList.map((item, i) => {
           return (
@@ -253,16 +316,15 @@ const Mygroups = () => {
                     onClick={() => handelRequestClose(item)}
                     className="button_v_1"
                   >
-                    {" "}
-                    {data.uid == item.adminID &&
-                    groupJoinRequestList == item.id ? (
-                      <span className="group_req_count">{requestList.length}</span>
-                    ) : (
-                      ""
-                    )}{" "}
+                    <span className="group_req_count">{list.length}</span>
                     Request
                   </button>
-                  <button className="button_v_3">Details</button>
+                  <button
+                    onClick={() => handelGroupInfo(item)}
+                    className="button_v_3"
+                  >
+                    Details
+                  </button>
                 </div>
               </div>
             </div>

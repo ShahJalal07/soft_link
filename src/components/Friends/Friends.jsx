@@ -17,8 +17,7 @@ const Friends = () => {
   const db = getDatabase();
   const data = useSelector((state) => state.userInfo.userInfo);
   const [friendList, setFriendList] = useState([]);
-  console.log(friendList);
-
+  
   // get friends start
   useEffect(() => {
     const friendRef = ref(db, "friends");

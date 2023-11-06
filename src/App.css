@@ -47,6 +47,9 @@
 .button_v_3{
   @apply py-[5px] px-[10px] mr-1 bg-secondary-light-blue text-[15px] font-secondary_roboto font-medium capitalize rounded-md text-primary-white hover:opacity-70 ml-[2px]
 }
+.button_v_4{
+  @apply py-[5px] px-[10px] mr-1 bg-yellow-500 text-[15px] font-secondary_roboto font-medium capitalize rounded-md text-primary-white ml-[2px]
+}
 /* button end */
 
 .blure{
